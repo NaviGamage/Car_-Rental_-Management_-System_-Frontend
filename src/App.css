@@ -1,0 +1,747 @@
+
+
+/* --- LOGIN PAGE STYLES --- */
+
+.login-wrapper {
+  /* This ensures the background image covers the entire screen */
+  background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+              url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1920');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* Keeps image still while scrolling */
+}
+
+/* The Main Card */
+.login-container {
+  background: rgba(248, 246, 246, 0.92); /* Semi-transparent */
+  backdrop-filter: blur(8px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Left Image Section (Red) */
+.login-image-side {
+  background: linear-gradient(200deg, rgba(12, 0, 1, 0.95), rgba(107, 64, 67, 0.9)), 
+ 
+              url('https://images.unsplash.com/photo-1493238792000-8113da705763?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+  background-size: cover;
+  background-position: center;
+  min-height: 250px;
+}
+
+.logo-line {
+  width: 40px;
+  height: 3px;
+  background: white;
+  margin-top: 5px;
+}
+
+/* Form Styling */
+.form-label-caps {
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 1.2px;
+  color: #6c757d;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.custom-input {
+  background-color: #f1f3f5 !important;
+  border: none !important;
+  padding: 12px 15px !important;
+  border-radius: 10px !important;
+  font-size: 0.9rem;
+}
+
+.custom-input:focus {
+  background-color: #e9ecef !important;
+  box-shadow: 0 0 0 3px rgba(190, 30, 45, 0.1) !important;
+}
+
+.login-btn {
+  background-color: #be1e2d !important;
+  border: none !important;
+  padding: 12px !important;
+  font-weight: 700 !important;
+  border-radius: 10px !important;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: #9d1925 !important;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(190, 30, 45, 0.2);
+}
+
+#forgot-link {
+  font-size: 0.75rem;
+  color: #6c757d;
+  text-decoration: none;
+}
+
+#forgot-link:hover {
+  color: #be1e2d;
+}
+
+/* Animations */
+.fade-in-up {
+  animation: fadeInUp 0.7s ease-out forwards;
+}
+
+.delay-1 { animation-delay: 0.2s; opacity: 0; }
+.delay-2 { animation-delay: 0.4s; opacity: 0; }
+.delay-3 { animation-delay: 0.6s; opacity: 0; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Small Device Fix */
+@media (max-width: 767px) {
+  .login-container {
+    margin: 15px;
+  }
+}
+
+/* Registration Specific Styles */
+.register-container {
+    background-color: #ffffff;
+    border-radius: 24px;
+    min-height: 700px;
+}
+
+.register-image-side {
+    /* Different car image for registration or same as login */
+    background: linear-gradient(135deg, rgba(26, 26, 26, 0.8), rgba(26, 26, 26, 0.6)),
+                url('https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&q=80&w=1200');
+    background-size: cover;
+    background-position: center;
+}
+
+.register-form-side {
+    max-height: 85vh; /* Prevents card from going off screen */
+    overflow-y: auto; /* Makes the form scrollable if it's too long */
+}
+
+/* Custom scrollbar for a better look */
+.register-form-side::-webkit-scrollbar {
+    width: 6px;
+}
+.register-form-side::-webkit-scrollbar-thumb {
+    background-color: #ddd;
+    border-radius: 10px;
+}
+
+/* Matching the caps labels from the login */
+.form-label-caps {
+    font-size: 0.65rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #999;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Grid layout for fields */
+.register-form-side .row.g-3 > div {
+    margin-bottom: 10px;
+}
+
+/* ===== MODERN DASHBOARD STYLES ===== */
+
+/* Color Gradients */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+.bg-gradient-secondary {
+  background: linear-gradient(135deg, #868e96 0%, #495057 100%) !important;
+}
+
+.bg-gradient-success {
+  background: linear-gradient(135deg, #11998e 0%, #38ef7d 100%) !important;
+}
+
+.bg-gradient-warning {
+  background: linear-gradient(135deg, #f7971e 0%, #ffd200 100%) !important;
+}
+
+.bg-gradient-info {
+  background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%) !important;
+}
+
+.bg-gradient-danger {
+  background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%) !important;
+}
+
+/* Welcome Banner */
+.welcome-banner {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+  box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+}
+
+.welcome-icon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+}
+
+.floating-car {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+}
+
+/* Card Styles */
+.stat-card {
+  border: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  overflow: hidden;
+  position: relative;
+}
+
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+.stat-icon {
+  transition: transform 0.3s ease;
+}
+
+.stat-card:hover .stat-icon {
+  transform: scale(1.1) rotate(5deg);
+}
+
+.action-card {
+  border: none;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+.action-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1) !important;
+}
+
+.action-icon {
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.action-card:hover .action-icon {
+  transform: scale(1.15);
+}
+
+/* Animation Classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.5s ease-out;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-bounce {
+  animation: bounce 2s infinite;
+}
+
+.animate-pulse {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.animate-delay-1 {
+  animation-delay: 0.1s;
+}
+
+.animate-delay-2 {
+  animation-delay: 0.2s;
+}
+
+.animate-delay-3 {
+  animation-delay: 0.3s;
+}
+
+.animate-delay-4 {
+  animation-delay: 0.4s;
+}
+
+/* Hover Effects */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-scale-lg {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale-lg:hover {
+  transform: scale(1.03);
+}
+
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+.hover-bg-light:hover {
+  background-color: rgba(102, 126, 234, 0.05) !important;
+}
+
+.hover-shadow {
+  transition: box-shadow 0.3s ease;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Button Styles */
+.btn-rounded {
+  border-radius: 50px !important;
+}
+
+.btn-shadow {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.btn-shadow:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Table Styles */
+.table-hover tbody tr {
+  transition: all 0.2s ease;
+}
+
+.table-hover tbody tr:hover {
+  background-color: rgba(102, 126, 234, 0.05) !important;
+}
+
+/* Badge Styles */
+.badge-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+}
+
+/* Empty State */
+.empty-state {
+  padding: 3rem 1rem;
+  text-align: center;
+}
+
+.empty-state i {
+  opacity: 0.5;
+}
+
+/* Profile Card */
+.profile-info .avatar {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 50%;
+  color: white;
+}
+
+/* Custom Borders */
+.rounded-4 {
+  border-radius: 1rem !important;
+}
+
+.rounded-5 {
+  border-radius: 1.5rem !important;
+}
+
+/* Animation Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Logo Styles */
+.logo-icon {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.logo-icon:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: rotate(10deg);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+}
+
+/* Loading Spinner */
+.spinner-grow-lg {
+  width: 4rem;
+  height: 4rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .welcome-banner .d-flex {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .welcome-icon {
+    margin: 0 auto 1rem;
+  }
+  
+  .floating-car {
+    display: none;
+  }
+  
+  .stat-card {
+    margin-bottom: 1rem;
+  }
+  
+  .action-card {
+    margin-bottom: 1.5rem;
+  }
+}
+
+/* Glass Effect (Optional) */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Status Badge Colors */
+.bg-status-active {
+  background-color: rgba(25, 135, 84, 0.1) !important;
+  color: #198754 !important;
+  border: 1px solid rgba(25, 135, 84, 0.2);
+}
+
+.bg-status-pending {
+  background-color: rgba(255, 193, 7, 0.1) !important;
+  color: #ffc107 !important;
+  border: 1px solid rgba(255, 193, 7, 0.2);
+}
+
+.bg-status-completed {
+  background-color: rgba(13, 110, 253, 0.1) !important;
+  color: #0d6efd !important;
+  border: 1px solid rgba(13, 110, 253, 0.2);
+}
+
+.bg-status-cancelled {
+  background-color: rgba(220, 53, 69, 0.1) !important;
+  color: #dc3545 !important;
+  border: 1px solid rgba(220, 53, 69, 0.2);
+}
+
+/* Custom Shadows */
+.shadow-soft {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+.shadow-medium {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.shadow-strong {
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Car Rental Page Specific Styles */
+.modern-car-rental {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.car-image-header {
+  position: relative;
+  overflow: hidden;
+}
+
+.car-image-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+}
+
+.car-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.car-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(102, 126, 234, 0.8) 0%, rgba(118, 75, 162, 0.8) 100%);
+}
+
+.spec-card {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.spec-card:hover {
+  transform: translateY(-5px);
+  border-color: #667eea !important;
+  box-shadow: 0 10px 25px rgba(102, 126, 234, 0.1);
+}
+
+.spec-icon {
+  transition: all 0.3s ease;
+}
+
+.spec-card:hover .spec-icon {
+  transform: scale(1.1);
+}
+
+/* Form Styling */
+.form-control.border-2 {
+  border-width: 2px !important;
+  border-color: #e2e8f0 !important;
+  transition: all 0.3s ease;
+}
+
+.form-control.border-2:focus {
+  border-color: #667eea !important;
+  box-shadow: 0 0 0 0.25rem rgba(102, 126, 234, 0.25);
+}
+
+/* Animation for car cards */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.col {
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+/* Sticky elements */
+.sticky-top {
+  z-index: 1020;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .car-image-header {
+    height: 250px !important;
+  }
+  
+  .car-image-header i {
+    font-size: 5rem !important;
+  }
+  
+  .spec-card {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Empty state styling */
+.empty-state i {
+  opacity: 0.5;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Price display */
+.text-primary {
+  color: #667eea !important;
+}
+
+/* Gradient backgrounds */
+.bg-gradient-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+}
+
+/* Shadow utilities */
+.shadow-soft {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05) !important;
+}
+
+.shadow-medium {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
+}
+
+.shadow-strong {
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Hover effects */
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-scale-lg {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale-lg:hover {
+  transform: scale(1.03);
+}
+
+.hover-lift {
+  transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+}
+
+/* Animation classes */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
