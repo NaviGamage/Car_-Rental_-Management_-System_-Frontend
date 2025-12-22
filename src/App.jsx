@@ -10,8 +10,7 @@ import AuthService from './services/AuthService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyBookings from './Pages/MyBookings';
 import Payment from './Pages/Payment';
-import RentalService from './services/RentalService';
-import PaymentService from './services/PaymentService';
+
 
 // Protected Route Component
 const ProtectedRoute = ({ children, allowedRoles }) => {

@@ -117,6 +117,7 @@ const Login = () => {
                     id="email"
                     name="email"
                     placeholder="hello@reallygreatsite.com"
+                  
                     value={formData.email}
                     onChange={handleChange}
                   />
