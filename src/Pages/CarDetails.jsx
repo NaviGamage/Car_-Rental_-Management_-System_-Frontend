@@ -4,6 +4,7 @@ import AuthService from '../services/AuthService';
 import CarService from '../services/CarService';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CustomerNavbar from '../Components/Navbar';
 
 const CarDetails = () => {
   const { carId } = useParams();
@@ -187,41 +188,8 @@ const CarDetails = () => {
 
   return (
     <div>
-      {/* Navbar */}
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <div className="container-fluid">
-          <a className="navbar-brand" href="/customer/dashboard">
-            <i className="bi bi-car-front-fill me-2"></i>
-            Car Rental System
-          </a>
-          <button
-            className="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-          >
-            <span className="navbar-toggler-icon"></span>
-          </button>
-          <div className="collapse navbar-collapse" id="navbarNav">
-            <ul className="navbar-nav ms-auto">
-              <li className="nav-item">
-                <a className="nav-link" href="/customer/dashboard">Dashboard</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link active" href="/customer/cars">Browse Cars</a>
-              </li>
-              <li className="nav-item">
-                <a className="nav-link" href="/customer/bookings">My Bookings</a>
-              </li>
-              <li className="nav-item">
-                <button className="btn btn-outline-light ms-2" onClick={handleLogout}>
-                  Logout
-                </button>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+      <CustomerNavbar user={user} handleLogout={handleLogout} />
+
 
       {/* Main Content */}
       <div className="container mt-4 mb-5">

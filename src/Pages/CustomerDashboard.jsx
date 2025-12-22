@@ -4,6 +4,8 @@ import AuthService from '../services/AuthService';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import CustomerNavbar from '../Components/Navbar';
+import '../App.css';
+import { getStatusIcon } from '../Utils/statusUtils';
 
 const CustomerDashboard = () => {
   const navigate = useNavigate();
@@ -93,9 +95,7 @@ const CustomerDashboard = () => {
 
   return (
   <div className="customer-dashboard">
-    
-   <CustomerNavbar user={user} handleLogout={handleLogout} />
-
+    <CustomerNavbar user={user} handleLogout={handleLogout} />
     {/* Main Content */}
     <div className="container-fluid px-lg-5 pt-4">
       {/* Welcome Banner with Animation */}

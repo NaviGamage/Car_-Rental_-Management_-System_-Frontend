@@ -15,7 +15,7 @@ const CustomerNavbar = ({ user, handleLogout }) => {
           <div className="logo-icon me-2 animate-float">
             <i className="bi bi-car-front-fill fs-4"></i>
           </div>
-          <span className="fw-bold">Auto Haven</span>
+          <span className="fw-bold"> DriveEase</span>
         </Link>
 
         <button
