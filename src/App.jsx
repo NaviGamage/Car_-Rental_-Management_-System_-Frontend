@@ -10,6 +10,8 @@ import AuthService from './services/AuthService';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import MyBookings from './Pages/MyBookings';
 import Payment from './Pages/Payment';
+import AddCar from './Pages/AddCar';
+import ManageCars from './Pages/ManageCars';
 
 
 // Protected Route Component
@@ -92,6 +94,25 @@ function App() {
         element={
           <ProtectedRoute allowedRoles={['ADMIN']}>
             <AdminDashboard />
+          </ProtectedRoute>
+        }
+      />
+
+      {/* Admin Car Management Routes */}
+      <Route
+        path="/admin/cars"
+        element={
+          <ProtectedRoute allowedRoles={['ADMIN']}>
+            <ManageCars />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/admin/cars/add"
+        element={
+          <ProtectedRoute allowedRoles={['ADMIN']}>
+            <AddCar />
           </ProtectedRoute>
         }
       />

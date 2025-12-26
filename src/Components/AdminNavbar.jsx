@@ -39,7 +39,7 @@ const AdminNavbar = ({ user, handleLogout }) => {
             <div className="logo-icon me-2">
               <i className="bi bi-shield-check"></i>
             </div>
-            <span className="fw-bold">AutoRent Pro</span>
+            <span className="fw-bold">DriveEase</span>
           </Link>
 
           {/* Search Bar */}
@@ -145,7 +145,7 @@ const AdminNavbar = ({ user, handleLogout }) => {
               <i className="bi bi-shield-check"></i>
             </div>
             <div>
-              <div className="fw-bold">AutoRent Pro</div>
+              <div className="fw-bold">DriveEase</div>
               <small className="text-muted">Admin Panel</small>
             </div>
           </div>

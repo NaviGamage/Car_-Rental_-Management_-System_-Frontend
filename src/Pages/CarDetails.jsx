@@ -4,7 +4,6 @@ import AuthService from '../services/AuthService';
 import CarService from '../services/CarService';
 import axios from 'axios';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import CustomerNavbar from '../Components/Navbar';
 
 const CarDetails = () => {
   const { carId } = useParams();
@@ -17,6 +16,7 @@ const CarDetails = () => {
   const [error, setError] = useState('');
   const [bookingLoading, setBookingLoading] = useState(false);
   const [bookingSuccess, setBookingSuccess] = useState(false);
+  const [carImages, setCarImages] = useState([]);
 
   // Booking form state
   const [bookingData, setBookingData] = useState({
@@ -28,7 +28,10 @@ const CarDetails = () => {
   const [days, setDays] = useState(0);
 
   useEffect(() => {
-    fetchCarDetails();
+    if (carId) {
+      fetchCarDetails();
+      fetchCarImages();
+    }
   }, [carId]);
 
   useEffect(() => {
@@ -48,6 +51,15 @@ const CarDetails = () => {
       console.error('Error fetching car details:', error);
       setError('Failed to load car details. Please try again.');
       setLoading(false);
+    }
+  };
+
+  const fetchCarImages = async () => {
+    try {
+      const images = await CarService.getCarImages(carId);
+      setCarImages(images || []);
+    } catch (error) {
+      console.error('Error fetching car images:', error);
     }
   };
 
@@ -135,7 +147,7 @@ const CarDetails = () => {
         endDate: bookingData.endDate
       };
 
-      const response = await axios.post('http://localhost:8080/api/rentals', rentalData);
+      await axios.post('http://localhost:8080/api/rentals', rentalData);
       
       setBookingSuccess(true);
       setBookingLoading(false);
@@ -157,39 +169,97 @@ const CarDetails = () => {
     navigate('/login');
   };
 
-  const formatCurrency = (amount) => {
-    return new Intl.NumberFormat('en-LK', {
-      style: 'currency',
-      currency: 'LKR'
-    }).format(amount);
-  };
+  // Navbar Component
+  const Navbar = () => (
+    <nav className="navbar navbar-expand-lg navbar-dark bg-primary shadow-lg">
+      <div className="container-fluid">
+        <a className="navbar-brand d-flex align-items-center fw-bold fs-4" href="/customer/dashboard">
+          <div className="logo-icon me-2">
+            <i className="bi bi-car-front-fill"></i>
+          </div>
+          DriveEase
+        </a>
+        <button
+          className="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+        <div className="collapse navbar-collapse" id="navbarNav">
+          <ul className="navbar-nav ms-auto">
+            <li className="nav-item">
+              <a className="nav-link" href="/customer/dashboard">
+                <i className="bi bi-speedometer2 me-1"></i>
+                Dashboard
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/customer/cars">
+                <i className="bi bi-car-front me-1"></i>
+                Browse Cars
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/customer/bookings">
+                <i className="bi bi-calendar-check me-1"></i>
+                My Bookings
+              </a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/customer/profile">
+                <i className="bi bi-person me-1"></i>
+                Profile
+              </a>
+            </li>
+            <li className="nav-item ms-2">
+              <button className="btn btn-outline-light rounded-pill px-4" onClick={handleLogout}>
+                <i className="bi bi-box-arrow-right me-2"></i>
+                Logout
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
 
   if (loading) {
     return (
-      <div className="text-center mt-5">
-        <div className="spinner-border text-primary" role="status">
-          <span className="visually-hidden">Loading...</span>
+      <div>
+        <Navbar />
+        <div className="text-center mt-5">
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
+          <p className="mt-3">Loading car details...</p>
         </div>
-        <p className="mt-3">Loading car details...</p>
       </div>
     );
   }
 
   if (!car) {
     return (
-      <div className="container mt-5">
-        <div className="alert alert-danger">Car not found</div>
-        <button className="btn btn-primary" onClick={() => navigate('/customer/cars')}>
-          Back to Cars
-        </button>
+      <div>
+        <Navbar />
+        <div className="container mt-5">
+          <div className="alert alert-danger">Car not found</div>
+          <button className="btn btn-primary" onClick={() => navigate('/customer/cars')}>
+            Back to Cars
+          </button>
+        </div>
       </div>
     );
   }
 
+  const mainImage = carImages.length > 0 
+    ? CarService.getCarImageUrl(carImages[0].carImageId) 
+    : null;
+
   return (
     <div>
-      <CustomerNavbar user={user} handleLogout={handleLogout} />
-
+      <Navbar />
 
       {/* Main Content */}
       <div className="container mt-4 mb-5">
@@ -221,7 +291,19 @@ const CarDetails = () => {
             <div className="card shadow-sm mb-4">
               {/* Car Image */}
               <div className="card-img-top bg-light d-flex align-items-center justify-content-center" style={{height: '400px'}}>
-                <i className="bi bi-car-front-fill text-muted" style={{fontSize: '8rem'}}></i>
+                {mainImage ? (
+                  <img
+                    src={mainImage}
+                    alt={`${car.brand} ${car.carModel}`}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover'
+                    }}
+                  />
+                ) : (
+                  <i className="bi bi-car-front-fill text-muted" style={{fontSize: '8rem'}}></i>
+                )}
               </div>
 
               <div className="card-body">
@@ -245,8 +327,8 @@ const CarDetails = () => {
                 {/* Specifications */}
                 <h5 className="mt-4 mb-3">Specifications</h5>
                 <div className="row g-3">
-                  <div className="col-6">
-                    <div className="d-flex align-items-center">
+                  <div className="col-md-6">
+                    <div className="d-flex align-items-center mb-3">
                       <i className="bi bi-fuel-pump-fill text-primary fs-4 me-3"></i>
                       <div>
                         <small className="text-muted d-block">Fuel Type</small>
@@ -254,8 +336,8 @@ const CarDetails = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-6">
-                    <div className="d-flex align-items-center">
+                  <div className="col-md-6">
+                    <div className="d-flex align-items-center mb-3">
                       <i className="bi bi-people-fill text-primary fs-4 me-3"></i>
                       <div>
                         <small className="text-muted d-block">Seating</small>
@@ -263,8 +345,8 @@ const CarDetails = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-6">
-                    <div className="d-flex align-items-center">
+                  <div className="col-md-6">
+                    <div className="d-flex align-items-center mb-3">
                       <i className="bi bi-card-text text-primary fs-4 me-3"></i>
                       <div>
                         <small className="text-muted d-block">Plate Number</small>
@@ -272,8 +354,8 @@ const CarDetails = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="col-6">
-                    <div className="d-flex align-items-center">
+                  <div className="col-md-6">
+                    <div className="d-flex align-items-center mb-3">
                       <i className="bi bi-cash-stack text-primary fs-4 me-3"></i>
                       <div>
                         <small className="text-muted d-block">Daily Rate</small>
