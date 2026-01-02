@@ -12,12 +12,3 @@
 ✅ Email Notifications  
 ✅ Search & Filter Functionality  
 
-## Project Structure
-
-DriveEase/
-├── frontend/ # React.js application
-│ ├── src/
-│ │ ├── components/
-│ │ ├── pages/
-│ │ ├── services/
-│ │ └── utils/
