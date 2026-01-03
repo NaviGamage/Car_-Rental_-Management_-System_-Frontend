@@ -8,7 +8,7 @@
 ✅ Vehicle Booking & Management System  
 ✅ Responsive UI with Bootstrap 5  
 ✅ RESTful API with Spring Boot  
-✅ Payment Integration (if applicable)  
+✅ Payment Integration  
 ✅ Email Notifications  
 ✅ Search & Filter Functionality  
 
