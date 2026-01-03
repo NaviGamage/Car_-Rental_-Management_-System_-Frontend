@@ -12,6 +12,13 @@ import MyBookings from './Pages/MyBookings';
 import Payment from './Pages/Payment';
 import AddCar from './Pages/AddCar';
 import ManageCars from './Pages/ManageCars';
+import BookingManage from './Pages/BookingManage';
+import AdminPayments from './Pages/AdminPayments';
+import UserManage from './Pages/UserManage';
+import UserProfile from './Pages/UserProfile';
+
+
+
 
 
 // Protected Route Component
@@ -88,6 +95,24 @@ function App() {
         }
       />
 
+      <Route
+        path="/customer/payment"
+        element={
+          <ProtectedRoute allowedRoles={['CUSTOMER']}>
+            <Payment />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path="/customer/profile"
+        element={
+          <ProtectedRoute allowedRoles={['CUSTOMER']}>
+            <UserProfile />
+          </ProtectedRoute>
+        }
+      />
+
       {/* Admin Routes */}
       <Route
         path="/admin/dashboard"
@@ -117,7 +142,33 @@ function App() {
         }
       />
 
+      {/* Admin Booking Management Route */}
+      <Route
+        path="/admin/bookings"
+        element={
+          <ProtectedRoute allowedRoles={['ADMIN']}>
+            <BookingManage />
+          </ProtectedRoute>
+        }
+      />
 
+      <Route
+        path="/admin/payments"
+        element={
+          <ProtectedRoute allowedRoles={['ADMIN']}>
+            <AdminPayments />
+          </ProtectedRoute>
+        }
+      />
+
+      <Route
+        path='/admin/users'
+        element={
+          <ProtectedRoute allowedRoles={['ADMIN']}>
+            <UserManage />
+          </ProtectedRoute>
+        }
+      />
 
       {/* Unauthorized Route */}
       <Route path="/unauthorized" element={<Unauthorized />} />

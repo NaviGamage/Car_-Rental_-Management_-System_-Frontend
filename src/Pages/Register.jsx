@@ -12,7 +12,7 @@ const Register = () => {
     email: '',
     password: '',
     confirmPassword: '',
-    phonNumber: '',
+    phoneNumber: '',
     address: '',
     nic: '',
     role: 'customer'
@@ -65,10 +65,10 @@ const Register = () => {
       newErrors.confirmPassword = 'Passwords do not match';
     }
 
-    if (!formData.phonNumber.trim()) {
-      newErrors.phonNumber = 'Phone number is required';
-    } else if (!/^[0-9]{10}$/.test(formData.phonNumber)) {
-      newErrors.phonNumber = 'Phone number must be 10 digits';
+    if (!formData.phoneNumber.trim()) {
+      newErrors.phoneNumber = 'Phone number is required';
+    } else if (!/^[0-9]{10}$/.test(formData.phoneNumber)) {
+      newErrors.phoneNumber = 'Phone number must be 10 digits';
     }
 
     if (!formData.address.trim()) {
@@ -109,7 +109,7 @@ const Register = () => {
         email: '',
         password: '',
         confirmPassword: '',
-        phonNumber: '',
+        phoneNumber: '',
         address: '',
         nic: '',
         role: 'customer'
@@ -185,9 +185,9 @@ const Register = () => {
                     <label className="form-label-caps">Phone Number</label>
                     <input
                       type="text"
-                      className={`form-control custom-input ${errors.phonNumber ? 'is-invalid' : ''}`}
-                      name="phonNumber"
-                      value={formData.phonNumber}
+                      className={`form-control custom-input ${errors.phoneNumber ? 'is-invalid' : ''}`}
+                      name="phoneNumber"
+                      value={formData.phoneNumber}
                       onChange={handleChange}
                       placeholder="0771234567"
                     />

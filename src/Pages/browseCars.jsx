@@ -3,6 +3,9 @@ import { useNavigate } from 'react-router-dom';
 import AuthService from '../services/AuthService';
 import CarService from '../services/CarService';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import '../app.css';
+import Footer from '../Components/Footer';
 
 const BrowseCars = () => {
   const navigate = useNavigate();
@@ -191,7 +194,7 @@ const BrowseCars = () => {
   return (
     <div className="modern-car-rental">
       <Navbar />
-      
+
       <div className="container-fluid px-lg-5 pt-4">
         {/* Page Header */}
         <div className="row mb-4">
@@ -408,13 +411,13 @@ const BrowseCars = () => {
                           </div>
                         )}
                       </div>
-                      
+
                       <div className="card-body p-4">
                         {/* Car Info */}
                         <h5 className="card-title fw-bold mb-2">
                           {car.brand} {car.carModel}
                         </h5>
-                        
+
                         <p className="text-muted small mb-3">
                           <i className="bi bi-calendar me-1"></i>
                           {car.year} • {car.typesOfFuel}
@@ -463,7 +466,10 @@ const BrowseCars = () => {
           </div>
         </div>
       </div>
+       <Footer />
+
     </div>
+    
   );
 };
 

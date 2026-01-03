@@ -102,6 +102,83 @@ const CarService = {
     } catch (error) {
       throw error.response?.data || 'Failed to check availability';
     }
+  },
+
+  // ============ ADMIN OPERATIONS ============
+
+  // Create a new car
+  createCar: async (carData) => {
+    try {
+      const response = await axios.post(`${API_BASE_URL}/cars`, carData);
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || 'Failed to create car';
+    }
+  },
+
+  // Update a car
+  updateCar: async (carId, carData) => {
+    try {
+      const response = await axios.put(`${API_BASE_URL}/cars/${carId}`, carData);
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || 'Failed to update car';
+    }
+  },
+
+  // Delete a car
+  deleteCar: async (carId) => {
+    try {
+      const response = await axios.delete(`${API_BASE_URL}/cars/${carId}`);
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || 'Failed to delete car';
+    }
+  },
+
+  // Update car status
+  updateCarStatus: async (carId, status) => {
+    try {
+      const response = await axios.patch(`${API_BASE_URL}/cars/${carId}/status`, null, {
+        params: { status }
+      });
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || 'Failed to update car status';
+    }
+  },
+
+  // Upload car images
+  uploadCarImages: async (carId, imageFiles) => {
+    try {
+      const formData = new FormData();
+      imageFiles.forEach(file => {
+        formData.append('images', file);
+      });
+
+      const response = await axios.post(
+        `${API_BASE_URL}/car-images/upload/${carId}`,
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+      );
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || 'Failed to upload images';
+    }
+  },
+
+  // Delete car image
+  deleteCarImage: async (imageId) => {
+    try {
+      const response = await axios.delete(`${API_BASE_URL}/car-images/${imageId}`);
+      return response.data;
+    } catch (error) {
+      throw error.response?.data || 'Failed to delete image';
+    }
   }
 };
 

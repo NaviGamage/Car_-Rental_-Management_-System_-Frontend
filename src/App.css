@@ -1559,3 +1559,97 @@ textarea.form-control-lg {
   }
 }
 
+/* Add to your CSS file */
+.footer {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer a:hover {
+  color: #4e73df !important;
+  text-decoration: underline !important;
+}
+
+.hover-opacity-100:hover {
+  opacity: 1 !important;
+}
+
+/* Sticky footer behavior */
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
+/* For the minimal footer */
+.bg-primary.bg-opacity-10 {
+  background-color: rgba(78, 115, 223, 0.1) !important;
+}
+
+/* Smooth transitions */
+.footer a, .footer i {
+  transition: all 0.3s ease;
+}
+
+/* Company Info with Car Images */
+.company-info-section {
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.header-image {
+  position: relative;
+}
+
+.feature-icon {
+  width: 50px;
+  height: 50px;
+  background: rgba(13, 110, 253, 0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.car-showcase {
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+/* Hover effects for car images */
+.car-showcase .rounded-3:hover {
+  transform: scale(1.05);
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+/* Button hover effects */
+.company-info-section .btn-primary {
+  background: linear-gradient(135deg, #0d6efd 0%, #0b5ed7 100%);
+  border: none;
+  transition: all 0.3s ease;
+}
+
+.company-info-section .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(13, 110, 253, 0.3);
+}
+
+.company-info-section .btn-outline-primary:hover {
+  background: rgba(13, 110, 253, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .company-info-section {
+    padding: 2rem !important;
+  }
+  
+  .header-image {
+    height: 200px !important;
+  }
+  
+  .company-info-section h1 {
+    font-size: 2.5rem !important;
+  }
+}

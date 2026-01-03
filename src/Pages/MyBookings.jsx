@@ -5,6 +5,9 @@ import RentalService from '../services/RentalService';
 import PaymentService from '../services/PaymentService';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import CustomerNavbar from '../Components/Navbar';
+import 'bootstrap-icons/font/bootstrap-icons.css';
+import '../app.css';
+import Footer from '../Components/Footer';
 
 const MyBookings = () => {
   const navigate = useNavigate();
@@ -282,6 +285,7 @@ const MyBookings = () => {
           </div>
         )}
       </div>
+       <Footer />
     </div>
   );
 };
