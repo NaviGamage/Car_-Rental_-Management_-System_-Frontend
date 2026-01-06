@@ -168,13 +168,13 @@ const CustomerDashboard = () => {
                     <div className="row mb-5">
                       <div className="col-md-4 mb-4 mb-md-0">
                         <div className="text-center border rounded-3 p-4 shadow-soft h-100">
-                          <div className="display-2 fw-bold text-primary mb-2">15+</div>
+                          <div className="display-2 fw-bold text-primary mb-2">5+</div>
                           <div className="text-muted">Years Experience</div>
                         </div>
                       </div>
                       <div className="col-md-4 mb-4 mb-md-0">
                         <div className="text-center border rounded-3 p-4 shadow-soft h-100">
-                          <div className="display-2 fw-bold text-primary mb-2">500+</div>
+                          <div className="display-2 fw-bold text-primary mb-2">100+</div>
                           <div className="text-muted">Premium Cars</div>
                         </div>
                       </div>
@@ -214,7 +214,7 @@ const CustomerDashboard = () => {
                               </div>
                               <div>
                                 <h5 className="fw-bold mb-1">Flexible Rental</h5>
-                                <p className="text-muted mb-0">Daily, weekly, or monthly rental periods</p>
+                                <p className="text-muted mb-0">Daily rental periods</p>
                               </div>
                             </div>
                           </li>
